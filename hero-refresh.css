@@ -1,5 +1,5 @@
 /* Hero-only refresh. All selectors are scoped to #home. */
-#home { background: #fff; isolation: isolate; display: grid; place-items: center; min-height: 100svh; padding: 112px 32px; }
+#home { background: #fff; isolation: isolate; display: grid; place-items: center; min-height: calc(100svh - 52px); padding: 112px 32px; }
 #home::before { display: none; }
 #home .hero-refresh-glow { position: absolute; inset: 0; pointer-events: none; z-index: -1; filter: blur(12px); opacity: .34; animation: heroRefreshGlow 4s ease-out both; }
 #home .hero-refresh-glow::before { content: ''; position: absolute; inset: -12px; padding: 44px; background: conic-gradient(from 35deg, #8dcfff, #9c8cfb, #f2a3c9, #ffd1b0, #a2caff, #8dcfff); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; filter: blur(18px); }
@@ -16,7 +16,7 @@
 @keyframes heroRefreshGlow { 0% { opacity: .95; filter: blur(5px); } 30% { opacity: .85; } 100% { opacity: .34; filter: blur(12px); } }
 @keyframes heroRefreshText { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 640px) {
-  #home { padding: 112px 22px; }
+  #home { min-height: calc(100svh - 46px); padding: 112px 22px; }
   #home .hero-refresh-intro { font-size: 15px; margin-bottom: 23px; }
   #home .hero-refresh-title { font-size: clamp(39px, 9.9vw, 59px); line-height: 1.09; }
   #home .hero-refresh-description { font-size: 16px; margin-top: 25px; }
