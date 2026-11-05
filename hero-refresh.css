@@ -1,9 +1,9 @@
 /* Hero-only refresh. All selectors are scoped to #home. */
-#home { background: #fff; isolation: isolate; justify-content: center; }
+#home { background: #fff; isolation: isolate; display: grid; place-items: center; min-height: 100svh; padding: 112px 32px; }
 #home::before { display: none; }
 #home .hero-refresh-glow { position: absolute; inset: 0; pointer-events: none; z-index: -1; filter: blur(12px); opacity: .34; animation: heroRefreshGlow 4s ease-out both; }
 #home .hero-refresh-glow::before { content: ''; position: absolute; inset: -12px; padding: 44px; background: conic-gradient(from 35deg, #8dcfff, #9c8cfb, #f2a3c9, #ffd1b0, #a2caff, #8dcfff); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; filter: blur(18px); }
-#home .hero-refresh-inner { width: 100%; max-width: 1160px; padding: 115px 32px 120px; text-align: center; position: relative; z-index: 2; }
+#home .hero-refresh-inner { width: 100%; max-width: 1160px; padding: 0; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
 #home .hero-refresh-intro { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 400; line-height: 1.5; color: #69656f; margin-bottom: 25px; }
 #home .hero-refresh-title { font-family: 'Outfit', sans-serif; font-size: clamp(48px, 4.8vw, 72px); font-weight: 500; line-height: 1.06; letter-spacing: -.045em; color: #242329; margin: 0; }
 #home .hero-refresh-title em { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.025em; color: #6660b6; }
@@ -16,7 +16,7 @@
 @keyframes heroRefreshGlow { 0% { opacity: .95; filter: blur(5px); } 30% { opacity: .85; } 100% { opacity: .34; filter: blur(12px); } }
 @keyframes heroRefreshText { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 640px) {
-  #home .hero-refresh-inner { padding: 125px 22px 125px; }
+  #home { padding: 112px 22px; }
   #home .hero-refresh-intro { font-size: 15px; margin-bottom: 23px; }
   #home .hero-refresh-title { font-size: clamp(39px, 9.9vw, 59px); line-height: 1.09; }
   #home .hero-refresh-description { font-size: 16px; margin-top: 25px; }
