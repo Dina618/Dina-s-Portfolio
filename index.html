@@ -411,6 +411,14 @@
       .hero-character-layer.girl-layer { left: 51%; height: min(79svh, 700px); }
     }
   </style>
+  <link rel="stylesheet" href="hero-refresh.css">
+  <link rel="stylesheet" href="warm-gray.css">
+  <link rel="stylesheet" href="pixel-intro.css">
+  <link rel="stylesheet" href="text-intro.css?v=2">
+<link rel="stylesheet" href="portfolio-system.css">
+  <script src="portfolio-system.js" defer></script>
+<link rel="stylesheet" href="card-glow.css">
+<script src="card-glow.js" defer></script>
 </head>
 <body>
   <div id="cur"></div>
@@ -446,45 +454,23 @@
   </nav>
 
   <div class="hero-section" id="home">
-    <div class="hero-visual" aria-hidden="true">
-      <figure class="hero-art-shell">
-        <img class="hero-layer hero-scene-image" src="images/hero/background_clean.png" alt="" fetchpriority="high" decoding="async" />
-        <img class="hero-character-layer girl-layer" data-hero-sprite="girl" src="images/hero/girl_pose_01.png" alt="" decoding="sync" />
-        <img class="hero-character-layer dog-layer" data-hero-sprite="dog" src="images/hero/dog_idle_01.png" alt="" decoding="sync" />
-        <img class="hero-character-layer cat-layer" data-hero-sprite="cat" src="images/hero/cat_idle_01.png" alt="" decoding="sync" />
-        <img class="hero-layer hero-light-layer" src="images/hero/light_shadow_overlay.png" alt="" decoding="async" />
-      </figure>
-    </div>
-    <span class="hero-motion-zone zone-dog" data-hero-action="dog" aria-hidden="true"></span>
-    <span class="hero-motion-zone zone-cat" data-hero-action="cat" aria-hidden="true"></span>
-    <span class="hero-motion-zone zone-girl" data-hero-action="girl" aria-hidden="true"></span>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <p class="hero-eyebrow">Product Designer</p>
-        <h1 class="hero-name"><span class="hero-name-line">Hi,<span>I&rsquo;m</span></span><br><em>DINA.</em></h1>
-        <p class="hero-desc">
-          <span class="hero-desc-line">I design <span class="glow-word">0-to-1</span> AI products and consumer experiences that ship.</span>
-          <span class="hero-desc-line">Grounded in <span class="glow-word ai">research</span>, measured by outcomes.</span>
-        </p>
-        <p class="hero-note">Previously: AI mock interviews @ VortexNet · Local services @ The Convenience App</p>
-        <div class="hero-tags">
-          <span class="hero-tag">User Research</span>
-          <span class="hero-tag">Interaction Design</span>
-          <span class="hero-tag">Figma</span>
-          <span class="hero-tag">Accessibility</span>
-          <span class="hero-tag">Prototyping</span>
-        </div>
+    <div class="pixel-curtain" aria-hidden="true"></div>
+    <button class="intro-replay" type="button" aria-label="Replay opening animation">↻ Replay intro</button>
+    <div class="hero-refresh-glow" aria-hidden="true"></div>
+    <div class="hero-refresh-inner">
+      <p class="hero-refresh-intro">Hi, I’m Dina — a Product Designer.</p>
+      <h1 class="hero-refresh-title"><span class="text-reveal-line">I design 0-to-1 <span class="pixel-accent">AI products</span></span> <span class="text-reveal-line">and thoughtful digital experiences.</span></h1>
+      <p class="hero-refresh-description">Grounded in research. Refined through testing.<br>From AI conversations to everyday interactions.</p>
+      <p class="hero-refresh-note">AI mock interviews @ VortexNet <span>·</span> Local services @ The Convenience App</p>
         <div class="hero-cta-row">
           <a href="#projects" class="hero-cta">View My Work <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="resume/Dina_Da_Product_Designer_Resume.pdf" target="_blank" class="hero-cta-outline">See My Resume <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 01-1 1H6a1 1 0 01-1-1V3.5a1 1 0 011-1z"/><path d="M15 2.5V7h4"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="15.5" x2="16" y2="15.5"/><line x1="8" y1="19" x2="13" y2="19"/></svg></a>
         </div>
-      </div>
     </div>
-    <div class="hero-bottom-fade" aria-hidden="true"></div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <div class="scroll-line"></div>
-      <span class="scroll-text">Scroll Down</span>
-    </div>
+    <a class="scroll-indicator" href="#projects" aria-label="Selected work — scroll to projects">
+      <span class="scroll-text">Selected work</span>
+      <span class="work-cue-arrow" aria-hidden="true">↓</span>
+    </a>
   </div>
 
   <div class="tools-strip" aria-label="Tools Dina works with">
@@ -755,13 +741,7 @@
         return sprite;
       }
 
-      var heroFrameReady = preloadHeroFrames([
-        ['images/hero/girl_pose_01.png', 'images/hero/girl_pose_wave.png', 'images/hero/girl_pose_think.png', 'images/hero/girl_pose_smile.png'],
-        ['images/hero/dog_idle_01.png'],
-        ['images/hero/dog_sniff_01.png', 'images/hero/dog_sniff_02.png', 'images/hero/dog_sniff_03.png'],
-        ['images/hero/cat_idle_01.png'],
-        ['images/hero/cat_reach_01.png', 'images/hero/cat_reach_02.png', 'images/hero/cat_reach_03.png', 'images/hero/cat_reach_04.png']
-      ]);
+      var heroFrameReady = Promise.resolve(); // This hero does not use character sprites.
 
       heroSprites.girl = createHeroSprite('girl', {
         staticFrame: 'images/hero/girl_pose_01.png',
@@ -864,5 +844,6 @@
       reveals.forEach(function(el) { obs.observe(el); });
     })();
   </script>
+<script src="text-intro.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+/* Local concept: subtle text reveal plus perimeter glow; no pixel curtain. */
+#home { background:#E3E1DC; }
+#home .pixel-curtain { display:none; }
+#home.is-revealing .hero-refresh-inner { animation:none; }
+#home .text-reveal-line { display:block; }
+#home.is-revealing .text-reveal-line { animation:quietTextReveal .85s cubic-bezier(.22,1,.36,1) both; }
+#home.is-revealing .text-reveal-line:nth-child(2) { animation-delay:.1s; }
+@keyframes quietTextReveal { from { opacity:0; transform:translateY(5px); filter:blur(2px); } to { opacity:1; transform:none; filter:blur(0); } }
+@media(prefers-reduced-motion:reduce) { #home.is-revealing .text-reveal-line { animation:none; } }
+
+/* Quiet project cue; the existing skills strip remains unchanged. */
+#home .scroll-indicator { min-width:0; height:44px; bottom:8px; padding:0 12px; gap:8px; border:0; border-radius:0; background:none; box-shadow:none; backdrop-filter:none; text-decoration:none; color:#66625D; opacity:1; animation:none; transform:translateX(-50%); transition:color .2s; }
+#home .scroll-indicator::before, #home .scroll-indicator::after { display:none; }
+#home .scroll-indicator:hover { background:none; color:#5B5BD6; transform:translateX(-50%); }
+#home .scroll-text { font:400 13px/1.4 'Outfit',sans-serif; letter-spacing:.01em; text-transform:none; color:inherit; }
+#home .work-cue-arrow { font:300 19px/1 'Outfit',sans-serif; transition:transform .2s; }
+#home .scroll-indicator:hover .work-cue-arrow { transform:translateY(3px); }
+#home .scroll-indicator:focus-visible { outline:2px solid #5B5BD6; outline-offset:3px; }
+@media(prefers-reduced-motion:reduce) { #home .work-cue-arrow { transition:none; } #home .scroll-indicator:hover .work-cue-arrow { transform:none; } }
+
+/* Entrance light fades completely back to the shared warm-gray surface. */
+#home .hero-refresh-glow { background:transparent; }
+#home .hero-refresh-glow::before, #home .hero-refresh-glow::after { opacity:0; }
+#home.is-revealing .hero-refresh-glow::before { animation-name:entranceRimFadeOut; }
+#home.is-revealing .hero-refresh-glow::after { animation-name:entranceBloomFadeOut; }
+@keyframes entranceRimFadeOut {
+ 0% { opacity:0; transform:scale(1.035); filter:blur(25px); }
+ 14% { opacity:1; transform:scale(1); filter:blur(12px); }
+ 38% { opacity:1; transform:scale(1.005); filter:blur(18px); }
+ 72% { opacity:.3; filter:blur(23px); }
+ 100% { opacity:0; transform:scale(1.01); filter:blur(25px); }
+}
+@keyframes entranceBloomFadeOut {
+ 0% { opacity:0; transform:scale(1.04); }
+ 19% { opacity:.95; transform:scale(1); }
+ 38% { opacity:.8; }
+ 100% { opacity:0; transform:scale(1.015); }
+}
+@media(prefers-reduced-motion:reduce) {
+ #home.is-revealing .hero-refresh-glow::before, #home.is-revealing .hero-refresh-glow::after { animation:none; opacity:0; }
+}

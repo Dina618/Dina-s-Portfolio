@@ -1,0 +1,50 @@
+/* Independent local concept. Never uploaded or deployed. */
+#home { background: #E3E1DC; }
+#home .hero-refresh-glow { z-index: 0; inset: -14px; filter: blur(18px); opacity: 1; animation: none; background: radial-gradient(ellipse 42% 55% at 80% 18%, rgba(181,174,216,.48), transparent 100%), radial-gradient(ellipse 35% 48% at 9% 45%, rgba(187,200,217,.38), transparent 100%), radial-gradient(ellipse 40% 52% at 48% 48%, rgba(240,237,231,.9), transparent 100%); }
+/* One entrance bloom, then a quiet residual glow. */
+#home .hero-refresh-glow::before {
+ display: block; content: ''; position: absolute; inset: -8px; padding: clamp(26px,4vw,58px);
+ background: conic-gradient(from 35deg, #b9a0ff 0deg, #7970ee 75deg, #e5a3d0 140deg, #eee3ff 190deg, #91d9f3 250deg, #a89af7 320deg, #b9a0ff 360deg);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude;
+ filter: blur(17px); opacity: .12; transform-origin: center;
+ animation: grayEntranceRim 3.8s cubic-bezier(.22,.61,.36,1) both;
+}
+#home .hero-refresh-glow::after {
+ content: ''; position: absolute; inset: 0; pointer-events: none;
+ background: radial-gradient(ellipse 44% 60% at 100% 5%, rgba(151,125,245,.85), transparent 100%), radial-gradient(ellipse 36% 55% at 0% 65%, rgba(132,211,246,.82), transparent 100%), radial-gradient(ellipse 50% 40% at 75% 110%, rgba(232,160,215,.7), transparent 100%), radial-gradient(ellipse 32% 27% at 15% 0%, rgba(253,246,255,.9), transparent 100%);
+ opacity: .06; animation: grayEntranceBloom 3.8s ease-out both;
+}
+@keyframes grayEntranceRim {
+ 0% { opacity: .15; transform: scale(1.035); filter: blur(25px); }
+ 14% { opacity: 1; transform: scale(1); filter: blur(12px); }
+ 38% { opacity: 1; transform: scale(1.005); filter: blur(18px); }
+ 72% { opacity: .4; filter: blur(23px); }
+ 100% { opacity: .12; transform: scale(1.01); filter: blur(25px); }
+}
+@keyframes grayEntranceBloom {
+ 0% { opacity: .06; transform: scale(1.04); }
+ 19% { opacity: .95; transform: scale(1); }
+ 38% { opacity: .8; }
+ 100% { opacity: .06; transform: scale(1.015); }
+}
+#home .hero-refresh-inner { max-width: 1180px; }
+#home .hero-refresh-intro { font-weight: 400; font-size: 16px; color: #66625D; margin-bottom: 28px; }
+#home .hero-refresh-title { font-size: clamp(37px, 4.5vw, 64px); line-height: 1.15; font-weight: 400; letter-spacing: -.04em; color: #302E2B; animation: grayTextIn .8s ease-out both; }
+#home .gray-roll { color: #625C89; display: inline-block; white-space: nowrap; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
+#home .gray-roll > span > span { display: inline-block; transform-origin: 50% 100%; animation: grayLetterIn .9s cubic-bezier(.16,1,.3,1) both; animation-delay: calc(.18s + var(--delay)); }
+#home .hero-refresh-description { color: #66625D; font-weight: 400; font-size: clamp(16px,1.5vw,20px); margin-top: 27px; }
+#home .hero-refresh-note { color: #777269; margin-top: 22px; }
+#home .hero-cta-row { margin-top: 30px; }
+#home .hero-cta-outline { background: rgba(240,237,231,.45); }
+@keyframes grayTextIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes grayLetterIn { from { transform: translateY(110%) rotateX(-65deg); opacity: .1; } to { transform: translateY(0) rotateX(0); opacity: 1; } }
+@media(max-width:640px) {
+ #home .hero-refresh-intro { font-size: 14px; margin-bottom: 24px; }
+ #home .hero-refresh-title { font-size: clamp(32px,8.3vw,48px); line-height: 1.18; letter-spacing: -.035em; }
+ #home .hero-refresh-description { font-size: 16px; }
+ #home .hero-refresh-note { font-size: 12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ #home .hero-refresh-glow, #home .hero-refresh-glow::before, #home .hero-refresh-glow::after, #home .hero-refresh-title, #home .gray-roll > span > span { animation:none; }
+}

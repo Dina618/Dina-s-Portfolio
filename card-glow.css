@@ -1,0 +1,17 @@
+/* Independently authored light treatment; existing card layout stays intact. */
+.project-card { isolation:isolate; --light-x:50%; --light-y:45%; }
+.card-light, .card-entry-shine { position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; }
+.card-light { z-index:0; background:radial-gradient(ellipse 260px 300px at var(--light-x) var(--light-y),rgba(172,149,240,.21),rgba(157,213,237,.12) 38%,rgba(231,174,210,.08) 58%,transparent 78%); transition:opacity .45s ease; }
+.project-card::after, .card-entry-shine { content:''; position:absolute; inset:0; z-index:4; border-radius:inherit; padding:1.5px; pointer-events:none; -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); mask-composite:exclude; }
+.project-card::after { background:radial-gradient(ellipse 320px 420px at var(--light-x) var(--light-y),#a295e4 5%,#a8d9ec 38%,#dcaaca 66%,transparent 100%); opacity:0; transition:opacity .45s ease; }
+.card-entry-shine { background:linear-gradient(115deg,transparent 25%,#b4a0ed 39%,#b0e0ed 49%,#e0b0ce 59%,transparent 73%); background-size:300% 100%; }
+.project-card.light-enter .card-entry-shine { animation:cardLightSweep 1.65s ease-out var(--light-delay,0ms) both; }
+@keyframes cardLightSweep { 0% { background-position:100% 0; opacity:0; } 20% { opacity:.9; } 70% { opacity:.75; } 100% { background-position:0% 0; opacity:0; } }
+@media(hover:hover) and (pointer:fine) {
+ .project-card:hover .card-light, .project-card:hover::after { opacity:1; }
+}
+.project-card:focus-visible .card-light, .project-card:focus-visible::after { opacity:1; }
+@media(prefers-reduced-motion:reduce) {
+ .project-card.light-enter .card-entry-shine { animation:none; }
+ .card-light, .project-card::after { transition:none; }
+}

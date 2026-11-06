@@ -1,0 +1,25 @@
+/* Local pixel-reveal exploration, independently implemented. */
+#home .pixel-accent { color: #625C89; }
+#home .pixel-curtain { position:absolute; inset:0; z-index:7; pointer-events:none; display:grid; grid-template-columns:repeat(var(--columns,20),1fr); grid-template-rows:repeat(var(--rows,12),1fr); overflow:hidden; }
+#home .pixel-cell { background:var(--tile,#E3E1DC); box-shadow:inset 0 0 0 .5px rgba(255,255,255,.2); opacity:0; }
+#home.is-revealing .pixel-cell { animation:pixelDissolve .58s cubic-bezier(.4,0,.2,1) both; animation-delay:var(--tile-delay); }
+#home .hero-refresh-glow::before, #home .hero-refresh-glow::after, #home .hero-refresh-title, #home .hero-cta-row { animation:none; opacity:1; transform:none; }
+#home .hero-refresh-glow::before { opacity:.12; }
+#home .hero-refresh-glow::after { opacity:.06; }
+#home.is-revealing .hero-refresh-glow::before { animation:grayEntranceRim 2.3s ease-out .35s both; }
+#home.is-revealing .hero-refresh-glow::after { animation:grayEntranceBloom 2.3s ease-out .35s both; }
+#home.is-revealing .hero-refresh-inner { animation:pixelContentIn 1s ease-out .25s both; }
+#home .intro-replay { position:absolute; z-index:8; bottom:40px; left:32px; border:0; background:transparent; color:#716D66; font:400 12px 'Outfit',sans-serif; cursor:pointer; padding:10px; border-radius:20px; }
+#home .intro-replay:hover { background:rgba(255,255,255,.25); color:#4C4BC8; }
+#home .intro-replay:focus-visible { outline:2px solid #5B5BD6; outline-offset:3px; }
+@keyframes pixelDissolve { 0% {opacity:1;transform:scale(1.01);} 40% {opacity:.9;} 100% {opacity:0;transform:scale(.65);} }
+@keyframes pixelContentIn { from { opacity:.2; transform:translateY(8px); } to { opacity:1; transform:none; } }
+/* Review-only query freezes the opening at 0.9s for a representative still. */
+#home.pixel-review .pixel-cell { animation-delay:calc(var(--tile-delay) - .9s); animation-play-state:paused; }
+#home.pixel-review .hero-refresh-glow::before, #home.pixel-review .hero-refresh-glow::after { animation-delay:-.55s; animation-play-state:paused; }
+#home.pixel-review .hero-refresh-inner { animation:none; }
+@media(max-width:640px) { #home .intro-replay { left:12px; bottom:30px; font-size:10px; padding:6px; } }
+@media(prefers-reduced-motion:reduce) {
+ #home .pixel-curtain {display:none;}
+ #home.is-revealing .hero-refresh-glow::before, #home.is-revealing .hero-refresh-glow::after, #home.is-revealing .hero-refresh-inner {animation:none;}
+}
