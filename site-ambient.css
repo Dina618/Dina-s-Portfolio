@@ -1,0 +1,5 @@
+/* A background-only layer: no overlay on text, artwork, menus or hit targets. */
+@property --ambient-strength{syntax:'<number>';inherits:true;initial-value:0}
+html{--ambient-x:50vw;--ambient-y:40vh;--ambient-strength:0;transition:--ambient-strength .45s ease;--ambient-gradient:radial-gradient(ellipse 390px 430px at var(--ambient-x) var(--ambient-y),rgba(172,149,240,calc(.12 * var(--ambient-strength))),rgba(157,213,237,calc(.075 * var(--ambient-strength))) 38%,rgba(231,174,210,calc(.04 * var(--ambient-strength))) 58%,transparent 80%)}
+html.ambient-active{--ambient-strength:1}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){html.ambient-active{--ambient-strength:0}html{transition:none}}

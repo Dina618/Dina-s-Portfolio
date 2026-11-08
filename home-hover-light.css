@@ -1,0 +1,7 @@
+/* Same local light palette as project cards; independent of the opening animation. */
+#home{--hover-light-x:50%;--hover-light-y:45%}
+#home .home-hover-light,#home .home-hover-rim{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .45s ease;z-index:1}
+#home .home-hover-light{background:radial-gradient(ellipse 360px 420px at var(--hover-light-x) var(--hover-light-y),rgba(172,149,240,.21),rgba(157,213,237,.12) 38%,rgba(231,174,210,.08) 58%,transparent 78%)}
+#home .home-hover-rim{padding:1.5px;background:radial-gradient(ellipse 420px 480px at var(--hover-light-x) var(--hover-light-y),#a295e4 5%,#a8d9ec 38%,#dcaaca 66%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude}
+@media(hover:hover) and (pointer:fine){#home:hover:not(.is-revealing) .home-hover-light,#home:hover:not(.is-revealing) .home-hover-rim{opacity:1}}
+@media(prefers-reduced-motion:reduce){#home .home-hover-light,#home .home-hover-rim{transition:none}}
