@@ -423,6 +423,8 @@
 <script src="./site-ambient.js" defer></script>
 <link rel="stylesheet" href="./home-hover-light.css">
 <script src="./home-hover-light.js" defer></script>
+<link rel="stylesheet" href="project-catalog.css">
+<script src="project-catalog.js" defer></script>
 </head>
 <body>
   <div id="cur"></div>
@@ -509,43 +511,43 @@
   <section id="projects">
     <div class="section-inner">
       <p class="section-label reveal">Selected Work</p>
-      <div class="projects-list">
-        <a href="ai-mentor-bot/" class="project-card reveal">
-          <div class="project-left">
-            <p class="project-number">01</p>
-            <h2 class="project-title">AI Mentor Bot</h2>
-            <p class="project-desc">An AI interview coaching product designed from 0→1, combining intelligent feedback, emotional support, and human mentorship into one guided experience.</p>
-            <div class="project-tags"><span class="tag">Professional</span><span class="tag">0→1 Product</span><span class="tag">AI Experience</span></div>
-          </div>
-          <div class="project-right">
-            <div class="project-image"><img src="images/covers/project1.png" alt="AI Mentor Bot" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="project-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-          </div>
-        </a>
-        <a href="boston-cares/" class="project-card reveal">
-          <div class="project-left">
-            <p class="project-number">02</p>
-            <h2 class="project-title">Boston Cares</h2>
-            <p class="project-desc">An academic redesign that restructures navigation and key user journeys, helping volunteers, nonprofits, and corporate teams take action more easily.</p>
-            <div class="project-tags"><span class="tag">Academic</span><span class="tag">Website Redesign</span><span class="tag">Information Architecture</span></div>
-          </div>
-          <div class="project-right">
-            <div class="project-image"><img src="images/covers/project2.png" alt="Boston Cares" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="project-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-          </div>
-        </a>
-        <a href="colour.html" class="project-card reveal">
-          <div class="project-left">
-            <p class="project-number">03</p>
-            <h2 class="project-title">COLOUR</h2>
-            <p class="project-desc">Joined a pre-seed startup as Lead Product Designer, turning the founders&rsquo; initial PRD into a research-informed, investor-ready MVP in six weeks.</p>
-            <div class="project-tags"><span class="tag">Startup</span><span class="tag">Pre-seed MVP</span><span class="tag">Product Strategy</span></div>
-          </div>
-          <div class="project-right">
-            <div class="project-image"><img src="images/covers/project3.png" alt="COLOUR" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="project-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-          </div>
-        </a>
+      <div class="project-filter-bar" role="group" aria-label="Filter projects">
+<button type="button" data-filter="all" aria-pressed="true" aria-controls="filtered-projects">All work <span>6</span></button>
+<button type="button" data-filter="zero" aria-pressed="false" aria-controls="filtered-projects">0-to-1 <span>3</span></button>
+<button type="button" data-filter="redesign" aria-pressed="false" aria-controls="filtered-projects">Redesign <span>2</span></button>
+<button type="button" data-filter="challenge" aria-pressed="false" aria-controls="filtered-projects">Design Challenges <span>2</span></button>
+</div>
+<p class="filter-status sr-only" aria-live="polite" aria-atomic="true">Showing all 6 projects</p><div class="projects-list" id="filtered-projects">
+        <a href="ai-mentor-bot/" class="project-card reveal" data-category="zero">
+<div class="project-right"><div class="project-image"><img src="images/covers/project1.png" alt="AI Mentor Bot interface preview" loading="lazy"></div></div>
+<div class="project-left"><h2 class="project-title">AI Mentor Bot</h2><p class="project-desc">Designed AI interview coaching through research and usability testing.</p><div class="project-tags"><span class="tag">Professional</span><span class="tag">Conversational UX</span></div></div>
+<div class="project-card-footer"><time datetime="2025">2025</time><span class="case-link">View case study <span aria-hidden="true">↗</span></span></div>
+</a>
+        <a href="boston-cares/" class="project-card reveal" data-category="redesign">
+<div class="project-right"><div class="project-image"><img src="images/covers/project2.png" alt="Boston Cares interface preview" loading="lazy"></div></div>
+<div class="project-left"><h2 class="project-title">Boston Cares</h2><p class="project-desc">Redesigned navigation and key journeys to make volunteering easier.</p><div class="project-tags"><span class="tag">Academic</span><span class="tag">Website Redesign</span></div></div>
+<div class="project-card-footer"><time datetime="2025">2025</time><span class="case-link">View case study <span aria-hidden="true">↗</span></span></div>
+</a>
+        <a href="colour.html" class="project-card reveal" data-category="zero">
+<div class="project-right"><div class="project-image"><img src="images/covers/project3.png" alt="COLOUR interface preview" loading="lazy"></div></div>
+<div class="project-left"><h2 class="project-title">COLOUR</h2><p class="project-desc">Turned an initial PRD into a research-informed MVP in six weeks.</p><div class="project-tags"><span class="tag">Startup</span><span class="tag">0-to-1 Product</span></div></div>
+<div class="project-card-footer"><time datetime="2026">2026</time><span class="case-link">View case study <span aria-hidden="true">↗</span></span></div>
+</a>
+<article class="project-card reveal preview-card" data-category="challenge">
+<div class="project-right"><div class="placeholder-art academy" aria-label="Placeholder cover illustration"><div class="mock-browser"><div class="mock-nav"><i></i><i></i><i></i></div><div class="mock-body"><span class="mock-eyebrow">DESIGN CHALLENGE</span><strong>Room to grow.</strong><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-tiles"><i></i><i></i><i></i></div></div></div><span class="art-caption">COVER PLACEHOLDER</span></div></div>
+<div class="project-left"><h2 class="project-title">Flex Academy</h2><p class="project-desc">Your design challenge, with the problem and your contribution in focus.</p><div class="project-tags"><span class="tag">Design Challenge</span><span class="tag">Placeholder</span></div></div>
+<div class="project-card-footer"><span class="year-pending">Year to confirm</span><span class="case-link">Preview only</span></div>
+</article>
+<article class="project-card reveal preview-card" data-category="zero">
+<div class="project-right"><div class="placeholder-art concept" aria-label="Placeholder cover illustration"><div class="mock-browser"><div class="mock-nav"><i></i><i></i><i></i></div><div class="mock-body"><span class="mock-eyebrow">0-TO-1</span><strong>A fresh start.</strong><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-tiles"><i></i><i></i><i></i></div></div></div><span class="art-caption">COVER PLACEHOLDER</span></div></div>
+<div class="project-left"><h2 class="project-title">Product concept</h2><p class="project-desc">A place for your next 0-to-1 project and the decisions behind it.</p><div class="project-tags"><span class="tag">0-to-1 Product</span><span class="tag">Placeholder</span></div></div>
+<div class="project-card-footer"><span class="year-pending">Year to confirm</span><span class="case-link">Preview only</span></div>
+</article>
+<article class="project-card reveal preview-card" data-category="redesign challenge">
+<div class="project-right"><div class="placeholder-art redesign" aria-label="Placeholder cover illustration"><div class="mock-browser"><div class="mock-nav"><i></i><i></i><i></i></div><div class="mock-body"><span class="mock-eyebrow">REDESIGN · CHALLENGE</span><strong>Make it clearer.</strong><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-tiles"><i></i><i></i><i></i></div></div></div><span class="art-caption">COVER PLACEHOLDER</span></div></div>
+<div class="project-left"><h2 class="project-title">Redesign study</h2><p class="project-desc">A place for a redesign case study and the experience you improved.</p><div class="project-tags"><span class="tag">Redesign</span><span class="tag">Placeholder</span></div></div>
+<div class="project-card-footer"><span class="year-pending">Year to confirm</span><span class="case-link">Preview only</span></div>
+</article>
       </div>
     </div>
   </section>
