@@ -65,3 +65,5 @@ a.project-card:hover .case-link{color:var(--indigo)}a.project-card:hover .case-l
 
 /* Keep breathing room between category navigation and cards. */
 .project-filter-bar{margin-bottom:32px}
+
+.project-filter-bar button[hidden]{display:none!important}
